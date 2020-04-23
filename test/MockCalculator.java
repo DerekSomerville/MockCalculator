@@ -36,4 +36,16 @@ public class MockCalculator {
         System.out.println("testCalculatorAddMock: " + result);
         assertEquals(9, result);
     }
+
+    @Test
+    public void testDoSumsAddMock(){
+
+        Calculator spyCalculator = spy(calculator);
+        when(spyCalculator.first_value()).thenReturn(2);
+        DoMySums mySums = new DoMySums();
+        mySums.setCalculator(spyCalculator);
+        int result = mySums.calculatorAdd();
+        System.out.println("testDoSumsAddMock: " + result);
+        assertEquals(9, result);
+    }
 }
