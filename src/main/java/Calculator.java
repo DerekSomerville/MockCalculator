@@ -6,6 +6,12 @@ public class Calculator {
         return 7;
     }
     public int add_first_and_second(){
-        return this.first_value() + this.second_value();
+        int result;
+        try {
+            result = this.first_value() + this.second_value();
+        } catch (NullPointerException exp) {
+            result = 0;
+        }
+        return result;
     }
 }
