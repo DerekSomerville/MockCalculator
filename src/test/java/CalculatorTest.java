@@ -28,59 +28,5 @@ class CalculatorTest {
         assertEquals(9, spyCalculator.add_first_and_second());
     }
 
-    @Test
-    public void testDoSumsAddMock(){
 
-        Calculator spyCalculator = spy(calculator);
-        when(spyCalculator.first_value()).thenReturn(2);
-        DoMySums mySums = new DoMySums();
-        mySums.setCalculator(spyCalculator);
-        assertEquals(9, mySums.calculatorAdd());
-    }
-
-    @Test
-    public void testDoSumsAddMockMutlipleReturns(){
-
-        Calculator spyCalculator = spy(calculator);
-        when(spyCalculator.first_value())
-                .thenReturn(2)
-                .thenReturn(3);
-        DoMySums mySums = new DoMySums();
-        mySums.setCalculator(spyCalculator);
-        mySums.calculatorAdd();
-        assertEquals(10, mySums.calculatorAdd());
-    }
-
-    @Test
-    public void testDoSumsAddMockMutlipleCalls(){
-        Calculator spyCalculator = spy(calculator);
-        when(spyCalculator.first_value()).thenReturn(2);
-        DoMySums mySums = new DoMySums();
-        mySums.setCalculator(spyCalculator);
-        mySums.calculatorAdd();
-        assertEquals(9, mySums.calculatorAdd());
-    }
-
-    @Test
-    public void testDoSumsAddMockMutlipleReturnsAndCalls(){
-        Calculator spyCalculator = spy(calculator);
-        when(spyCalculator.first_value())
-                .thenReturn(2)
-                .thenReturn(3);
-        DoMySums mySums = new DoMySums();
-        mySums.setCalculator(spyCalculator);
-        mySums.calculatorAdd();
-        mySums.calculatorAdd();
-        assertEquals(10, mySums.calculatorAdd());
-    }
-
-    @Test
-    public void testDoSumsAddMockException(){
-        Calculator spyCalculator = spy(calculator);
-        when(spyCalculator.first_value())
-                .thenThrow(NullPointerException.class);
-        DoMySums mySums = new DoMySums();
-        mySums.setCalculator(spyCalculator);
-        assertEquals(0, mySums.calculatorAdd());
-    }
 }
